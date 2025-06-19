@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+    .mainBox{
+        display: flex;
+    }
+    .tugmalar{
+        margin: 16px 0;
+    }
+    </style>
+
+    <div class="container">
+        <input type="text" id="textBox">
+        <button onclick="add()">Qo'shish</button>
+
+        <div class="mainBox" id="mainBox"> 
+            <div id="givenInput">
+                <!-- <p id="paragraph">salom</p> -->
+            </div>
+             <div id="tugmalar">
+                <!-- <button id="delBtn">O'chirish</button> -->
+                <!-- <button id="doneBtn">Bajarildi</button> -->
+             </div>
+        </div>
+    </div>
+    <h1>SAlom</h1>
+
+    <script>
+        function add(){
+    inputValue = textBox.value.trim()
+    
+    if(inputValue === ""){
+        window.alert("iltimos qiymat kiriting")
+    }else{
+        textBox.value = ""
+        const paragraph = document.createElement("p")
+        givenInput.appendChild(paragraph)
+        paragraph.textContent = inputValue
+
+        const delBtn = document.createElement("button")
+        delBtn.textContent = "O'chirish"
+        tugmalar.appendChild(delBtn)
+
+        const doneBtn = document.createElement("button")
+        doneBtn.textContent = "Bajarildi"
+        tugmalar.appendChild(doneBtn)
+
+        tugmalar.style.marginTop = "13px"
+        tugmalar.style.marginLeft = "40px"
+        tugmalar.style.flexWrap = "wrap"
+        doneBtn.style.marginLeft = "20px"
+        const kesish = document.createElement("br")
+        tugmalar.appendChild(kesish)
+
+        doneBtn.addEventListener('click', () => {
+            paragraph.style.color = "rgb(179, 179, 179)"
+            doneBtn.remove()
+        })
+
+        delBtn.addEventListener('click', () => {
+            paragraph.remove()
+            delBtn.remove()
+            doneBtn.remove()
+        })
+    
+    
+        
+    }
+    mainBox.style.marginTop = '10px'
+    
+}
+
+    </script>
+</body>
+</html>
